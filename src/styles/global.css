@@ -1,0 +1,348 @@
+/* GENERAL STYLES */
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(to right, #f8fafc, #e0f2fe);
+  color: #1e293b;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark {
+  background: #1f2937;
+  color: #f9fafb;
+}
+
+/* NAVBAR */
+.navbar {
+  background: #0f172a;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: center; /* Center navbar content */
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+  border-bottom: 2px solid #38bdf8;
+  border-radius: 0 0 15px 15px;
+}
+
+.navbar .logo {
+  color: #38bdf8;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-right: 50px;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  position: relative;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 0%;
+  background: #38bdf8;
+  transition: width 0.3s;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a:hover {
+  color: #38bdf8;
+}
+
+/* THEME TOGGLE BUTTON */
+.theme-toggle {
+  font-size: 22px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  right: 20px; /* stays in right corner */
+}
+
+/* HAMBURGER MENU */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+  position: absolute;
+  right: 60px; /* near toggle button on mobile */
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* MOBILE NAVIGATION */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: #0f172a;
+    display: none;
+    padding: 20px 0;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    gap: 20px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* PAGE CONTAINER */
+.page {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
+  transition: color 0.3s;
+}
+
+/* HERO SECTION */
+.hero {
+  background: linear-gradient(135deg, #2563eb, #38bdf8);
+  color: white;
+  padding: 100px 30px;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  transition: background 0.3s;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+.hero p {
+  font-size: 20px;
+  line-height: 1.6;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+/* BUTTONS */
+button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 30px;
+  margin-top: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+button:hover {
+  background: #1e40af;
+  transform: translateY(-3px);
+}
+
+/* CARDS */
+.card {
+  background: white;
+  padding: 30px;
+  margin: 20px 0;
+  border-radius: 20px;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+  transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+}
+
+body.dark .card {
+  background: #334155;
+  color: #f9fafb;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+/* INPUTS & TEXTAREA */
+input, textarea {
+  width: 100%;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #cbd5f5;
+  margin-top: 10px;
+  font-size: 15px;
+  transition: background 0.3s, color 0.3s, border 0.3s, box-shadow 0.3s;
+}
+
+input:focus, textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 8px rgba(37,99,235,0.4);
+  outline: none;
+}
+
+body.dark input, body.dark textarea {
+  background: #1e293b;
+  color: #f9fafb;
+  border: 1px solid #475569;
+}
+
+/* FEATURE GRID */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+/* SERVICES LAYOUT */
+.services-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Services heading with blue box */
+.services-container h1 {
+  background: linear-gradient(135deg, #2563eb, #38bdf8);
+  color: white;
+  display: inline-block;
+  padding: 12px 25px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Services cards */
+.services-container .card {
+  flex: 1 1 250px;
+  max-width: 300px;
+  text-align: center;
+  padding: 30px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #2563eb, #38bdf8);
+  color: white;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+}
+
+body.dark .services-container .card {
+  background: linear-gradient(135deg, #1e293b, #334155);
+  color: #f9fafb;
+}
+
+.services-container .card h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.services-container .card p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 40px 20px;
+  background: #0f172a;
+  color: white;
+  margin-top: 50px;
+  border-radius: 15px 15px 0 0;
+  box-shadow: 0 -5px 20px rgba(0,0,0,0.3);
+}
+
+.footer .social-links a {
+  margin: 0 12px;
+  font-size: 24px;
+  text-decoration: none;
+  transition: transform 0.3s;
+}
+
+.footer .social-links a:hover {
+  color: #38bdf8;
+  transform: scale(1.2);
+}
+/* SERVICES HERO-STYLE HEADING */
+.services-hero-container {
+  text-align: center; /* Center the heading in the page */
+  margin-bottom: 40px;
+}
+
+.services-hero {
+  background: linear-gradient(135deg, #2563eb, #38bdf8);
+  color: white;
+  padding: 40px 30px;
+  border-radius: 25px;
+  display: inline-block; /* So the box wraps tightly around text */
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  font-size: 36px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+/* SERVICES HERO-STYLE HEADING - FULL WIDTH */
+.services-hero-container {
+  text-align: center; /* Center the box itself */
+  margin-bottom: 40px;
+}
+
+.services-hero {
+  background: linear-gradient(135deg, #2563eb, #38bdf8);
+  color: white;
+  padding: 80px 30px; /* Bigger padding for bigger box */
+  border-radius: 25px;
+  display: inline-block; 
+  min-width: 85%;       /* Make it wider */
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  font-size: 42px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
